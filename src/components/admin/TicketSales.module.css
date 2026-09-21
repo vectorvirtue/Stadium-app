@@ -1,0 +1,16 @@
+.wrapper {
+  font-family: var(--heading);
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #202224;
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 13px;
+  color: #888;
+  font-family: var(--sans);
+}

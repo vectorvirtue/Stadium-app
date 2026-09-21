@@ -1,0 +1,124 @@
+.wrapper {
+  font-family: var(--heading);
+}
+
+.logoWrapper {
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: auto;
+  width: 160px;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.subheading {
+  font-size: 14px;
+  color: var(--text-small);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Field row — input + pencil icon */
+.fieldWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: #333;
+  background-color: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input::placeholder {
+  color: #b0b7c3;
+}
+
+/* Read-only state — slightly muted */
+.input[readonly] {
+  cursor: default;
+  color: #555;
+}
+
+/* Active editing state */
+.inputEditing {
+  background-color: #fff;
+  border-color: var(--text);
+}
+
+/* Pencil button — sits on the right end */
+.editBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.editBtn:hover {
+  background: #f0f0f0;
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 4px;
+  background-color: var(--text);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #025a96;
+}
+
+.footer {
+  margin-top: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-small);
+}
+
+.link {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
