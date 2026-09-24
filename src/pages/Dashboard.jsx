@@ -8,6 +8,7 @@ import logo from '../assets/PROTRACK LOGO 2.svg'
 // Active SVGs (blue)
 import matchesActive from "../assets/stadium 2.svg";
 import walletActive from "../assets/Vector.svg";
+import profileActive from "../assets/Profile.svg";
 
 // Inactive SVGs (grey/black)
 import matchesInactive from "../assets/stadium 1.svg";
@@ -50,16 +51,16 @@ export default function Dashboard() {
           <span>Wallet</span>
         </button>
 
-        {/* Profile tab - lucide-react icon */}
+        {/* Profile tab */}
         <button
           className={`${styles.tab} ${activeTab === "profile" ? styles.active : ""}`}
           onClick={() => setActiveTab("profile")}
         >
-          <UserCircle
-            size={28}
-            strokeWidth={1.5}
-            className={styles.profileIcon}
-          />
+          {activeTab === "profile" ? (
+            <img src={profileActive} alt="Profile" className={styles.tabIcon} />
+          ) : (
+            <UserCircle size={28} strokeWidth={1.5} color="#888" />
+          )}
           <span>Profile</span>
         </button>
       </nav>

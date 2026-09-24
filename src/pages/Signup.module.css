@@ -112,3 +112,29 @@
 .link:hover {
   text-decoration: underline;
 }
+
+
+/*404page*/
+.NotFound{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+
+.image {
+  width: 180px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+
+.NotFound h3{
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.NotFound button{
+
+}
+

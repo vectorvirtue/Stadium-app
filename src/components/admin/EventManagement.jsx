@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pencil, Trash2, Plus } from "lucide-react";
 import styles from "./EventManagement.module.css";
 import NewEventModal from "./modal/NewEventModal";
+import NotFound from "../../pages/NotFound";
 
 // Placeholder data — swap with backend response
 const EVENTS = [
@@ -54,60 +55,55 @@ export default function EventManagement({ onEdit, onDelete }) {
         </button>
       </div>
 
-      {/* Table */}
-      <div className={styles.tableWrapper}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Event Name</th>
-              <th>Venue</th>
-              <th>Date</th>
-              <th>Kickoff</th>
-              <th>Capacity</th>
-              <th>Sales Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {EVENTS.map((event, i) => (
-              <tr key={event.id}>
-                <td className={styles.serial}>#{i + 1}</td>
-                <td className={styles.name}>{event.name}</td>
-                <td>{event.venue}</td>
-                <td>{event.date}</td>
-                <td>{event.kickoff}</td>
-                <td>{event.capacity.toLocaleString()}</td>
-                <td>
-                  <span className={`${styles.badge} ${event.status === "open" ? styles.badgeOpen : styles.badgeClosed}`}>
-                    {event.status === "open" ? "Open" : "Closed"}
-                  </span>
-                </td>
-                <td>
-                  <div className={styles.actions}>
-                    <button
-                      className={styles.editBtn}
-                      onClick={() => onEdit?.(event)}
-                      aria-label="Edit event"
-                      title="Edit"
-                    >
-                      <Pencil size={14} strokeWidth={2} />
-                    </button>
-                    <button
-                      className={styles.deleteBtn}
-                      onClick={() => onDelete?.(event)}
-                      aria-label="Delete event"
-                      title="Delete"
-                    >
-                      <Trash2 size={14} strokeWidth={2} />
-                    </button>
-                  </div>
-                </td>
+      {/* Empty state */}
+      {EVENTS.length === 0 ? (
+        <NotFound onCreateEvent={() => setShowModal(true)} />
+      ) : (
+        /* Table */
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Event Name</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Kickoff</th>
+                <th>Capacity</th>
+                <th>Sales Status</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {EVENTS.map((event, i) => (
+                <tr key={event.id}>
+                  <td className={styles.serial}>#{i + 1}</td>
+                  <td className={styles.name}>{event.name}</td>
+                  <td>{event.venue}</td>
+                  <td>{event.date}</td>
+                  <td>{event.kickoff}</td>
+                  <td>{event.capacity.toLocaleString()}</td>
+                  <td>
+                    <span className={`${styles.badge} ${event.status === "open" ? styles.badgeOpen : styles.badgeClosed}`}>
+                      {event.status === "open" ? "Open" : "Closed"}
+                    </span>
+                  </td>
+                  <td>
+                    <div className={styles.actions}>
+                      <button className={styles.editBtn} onClick={() => onEdit?.(event)} aria-label="Edit event" title="Edit">
+                        <Pencil size={14} strokeWidth={2} />
+                      </button>
+                      <button className={styles.deleteBtn} onClick={() => onDelete?.(event)} aria-label="Delete event" title="Delete">
+                        <Trash2 size={14} strokeWidth={2} />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {/* New Event Modal */}
       {showModal && (

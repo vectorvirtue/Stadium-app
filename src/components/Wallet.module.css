@@ -148,3 +148,39 @@
   color: #a8bdd1;
   font-weight: 400;
 }
+
+/* Empty state */
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.emptyText {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Scroll indicator dots — mobile only */
+.dots {
+  display: none;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #006FB5;
+  transition: opacity 0.2s;
+}
+
+@media (max-width: 900px) {
+  .dots {
+    display: flex;
+  }
+}

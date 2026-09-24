@@ -1,16 +1,167 @@
 .wrapper {
-  font-family: var(--heading);
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .heading {
   font-size: 20px;
   font-weight: 700;
-  color: #202224;
-  margin-bottom: 6px;
+  color: var(--text);
+  margin-bottom: 2px;
 }
 
 .sub {
-  font-size: 13px;
+  font-size: 12px;
   color: #888;
   font-family: var(--sans);
+  margin-bottom: 20px;
+}
+
+/* Gate stat cards */
+.gateCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;  border-radius: 12px;
+}
+
+.gateCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.gateCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.gateLabel {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+}
+
+.gateIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ede7f6;
+  display: grid;
+  place-items: center;
+}
+
+.gateIcon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.gateCount {
+  font-family: var(--heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: #202224;
+  margin-bottom: 4px;
+}
+
+
+.deniedZero {
+  color: #00897b;
+}
+
+.deniedNonZero {
+  color: #e53935;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.table thead tr {
+  background: #f8f9fb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: #202224;
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.1s;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.table td {
+  padding: 16px 20px;
+  color: #444;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ticketId {
+  font-weight: 600;
+  color: #202224;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badgeGranted {
+  background: #e0f7f4;
+  color: #00897b;
+}
+
+.badgeDenied {
+  background: #fde8e8;
+  color: #e53935;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gateCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gateCards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
