@@ -1,0 +1,203 @@
+.page {
+  min-height: 100vh;
+  padding: 0 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg);
+  font-family: var(--heading);
+}
+
+/* Scrollable content area below the tab bar */
+.content {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Header row: logo, tabs, and actions aligned together */
+.header {
+  width: 100%;
+  margin: 2em 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--text);
+  flex-shrink: 0;
+}
+
+/* Tab bar */
+.tabBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6em;
+}
+
+/* Individual tab button */
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 6px 20px;
+  color: #888;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  transition: color 220ms ease, background-color 220ms ease, transform 120ms ease;
+}
+
+.tab:hover {
+  color: var(--text);
+  background-color: #eaf4fb;
+}
+
+.tab.active {
+  color: var(--text);
+}
+
+.tab:hover .tabIcon,
+.tab:hover .profileIcon {
+  transform: scale(1.08);
+}
+
+/* SVG icons */
+.tabIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 160ms ease, filter 220ms ease, opacity 220ms ease;
+}
+
+.tabIconInactive {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.profileIcon {
+  color: #131111d2;
+  transition: color 220ms ease, transform 160ms ease;
+}
+
+.tab.active .profileIcon {
+  color: var(--text);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.adminLink,
+.signOutBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.adminLink {
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid var(--stroke);
+}
+
+.adminLink:hover {
+  background: #eaf4fb;
+  border-color: var(--text);
+}
+
+.signOutBtn {
+  color: #888;
+  background: none;
+  border: 1.5px solid transparent;
+}
+
+.signOutBtn:hover {
+  color: #e0483e;
+  border-color: #f3c9c5;
+  background: #fdf1f0;
+}
+
+.adminLink:active,
+.signOutBtn:active {
+  transform: scale(0.95);
+}
+
+.logo {
+  height: auto;
+  width: 160px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 0 16px;
+  }
+
+  .content {
+    padding-bottom: 78px;
+  }
+
+  .header {
+    margin: 1.2em 0 15px;
+    padding-bottom: 0;
+    border-bottom: none;
+    gap: 8px;
+  }
+
+  .tabBar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    margin: 0;
+    gap: clamp(1.5rem, 8vw, 6em);
+    padding: 12px 0 10px;
+    background-color: #fff;
+    border-top: 2px solid var(--text);
+  }
+
+  .tab {
+    padding: 0 clamp(4px, 2vw, 20px);
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .adminLink span,
+  .signOutBtn span {
+    display: none;
+  }
+
+  .adminLink,
+  .signOutBtn {
+    width: 34px;
+    padding: 0;
+    justify-content: center;
+  }
+}

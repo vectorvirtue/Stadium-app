@@ -1,0 +1,108 @@
+.heading {
+  font-family: var(--heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.empty {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-small);
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order {
+  padding: 14px 16px;
+  border: 1.5px solid var(--stroke);
+  border-radius: 14px;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.order:hover {
+  border-color: var(--text);
+  box-shadow: 0 6px 16px -8px rgba(2, 111, 182, 0.3);
+  transform: translateY(-2px);
+}
+
+.orderTop {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: #131111;
+  margin-bottom: 4px;
+}
+
+.status {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: #dceef7;
+  color: var(--text);
+}
+
+.status[data-status="pending"] {
+  background: #fef0c7;
+  color: #93710b;
+}
+
+.status[data-status="cancelled"] {
+  background: #fde5e2;
+  color: #b42318;
+}
+
+.status[data-status="paid"],
+.status[data-status="completed"] {
+  background: #d9f2e6;
+  color: #067647;
+}
+
+.orderMeta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-small);
+  margin-bottom: 2px;
+}
+
+.cancelBtn {
+  margin-top: 10px;
+  border: 1.5px solid #f3c9c5;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: #fff;
+  color: #e0483e;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: #e0483e;
+  color: #fff;
+  border-color: #e0483e;
+}
+
+.cancelBtn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.error {
+  color: #b42318;
+  font-family: var(--sans);
+  font-size: 13px;
+}

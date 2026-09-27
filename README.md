@@ -1,16 +1,23 @@
-# React + Vite
+﻿# Stadiumapp connected frontend and backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Frontend
 
-Currently, two official plugins are available:
+1. In `my-app`, copy `.env.example` to `.env.local`.
+2. Set `VITE_API_BASE_URL` to the running backend URL (default `http://localhost:8000`).
+3. Run `npm install` and `npm run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Backend
 
-## React Compiler
+1. In `stadium-backend`, copy `.env.example` to `.env` and configure PostgreSQL, JWT, and Paystack test keys.
+2. Keep `FRONTEND_URL` set to the frontend's origin and include the same origin in `FRONTEND_ORIGINS`.
+3. Install `requirements.txt`, run `alembic upgrade head`, then start `uvicorn app.main:app --reload --port 8000`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Checkout goes through the backend to Paystack. The frontend verifies the returned reference with the backend before reporting the payment status. Keep Paystack secret keys only in the backend `.env` file; never put them in the Vite environment.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run a test on the software do this:
+1. Run `python -m app.seed` from stadium-backend. This creates an admin account (admin@stadiumapp-admin.com / ChangeMe123!), a demo fan account (demo.fan@stadiumapp.example / ChangeMe123!), and a paid order with issued tickets plus gate-scan history — so Ticket Sales, Attendance/Gate, and Sales by Category aren't empty on first load.
+
+2. From stadium-backend, run `uvicorn app.main:app --reload --port 8000`.
+
+3. In a second terminal, cd my-app, run `npm install` then `npm run dev`. It reads VITE_API_BASE_URL from my-app/.env, which is already set to http://localhost:8000. Open the printed localhost URL (usually :5173).

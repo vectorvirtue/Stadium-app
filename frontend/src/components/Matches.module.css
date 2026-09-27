@@ -1,0 +1,478 @@
+.heading {
+  font-family: var(--heading);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.centre {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #13111199;
+  font-weight: 700;
+}
+
+.pin {
+  width: 17px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+
+.matches{
+    display: flex;
+    flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.match{
+  overflow: hidden;
+  border-radius: 14px;
+  border: 2px solid var(--stroke);
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.match:not(.soldOutMatch):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -8px rgba(2, 111, 182, 0.35);
+  border-color: var(--text);
+}
+
+.matchBanner {
+  position: relative;
+  height: 62px;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
+.matchBanner img {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 14px 14px 0 0;
+  transform: scaleX(1.33);
+  transform-origin: center;
+}
+
+.soldOut {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #131111da;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.matchInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 9px 10px 10px;
+  color: #343434;
+  font-family: var(--sans);
+  font-size: 8px;
+}
+
+.soldOutMatch .matchInfo {
+  color: var(--grey-color);
+}
+
+.matchInfo strong {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.matchFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.matchFooter button {
+  border: 0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background: #dceef7;
+  color: #343434;
+  font: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+
+.matchFooter button:hover {
+  background: var(--text);
+  color: #fff;
+}
+
+
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--heading);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 14px;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.back:hover {
+  opacity: 0.75;
+  transform: translateX(-2px);
+}
+
+.back span:hover{
+  text-decoration: underline;
+}
+
+
+/* ── PickTickets ──────────────────────────────────────────────── */
+
+.matchTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.matchMeta {
+  font-size: 12px;
+  color: var(--text-small);
+  margin-bottom: 20px;
+}
+
+.seats {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0.1em;
+  margin-bottom: 100px;
+}
+
+.seatCard {
+  flex: 1;
+  min-width: 0;
+  border: 1.5px solid var(--stroke);
+  border-radius: 22px;
+  padding: 12px 16px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.seatCard:hover {
+  border-color: var(--text);
+  box-shadow: 0 4px 14px -6px rgba(2, 111, 182, 0.3);
+  transform: translateY(-2px);
+}
+
+.seatCard.seatSelected {
+  border: 1px solid var(--text);
+  background-color: var(--stroke);
+  box-shadow: 0 0 0 1px var(--text);
+}
+
+.seatCard.seatSelected:hover {
+  transform: translateY(-2px);
+}
+
+.seatLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #131111;
+  margin-bottom: 4px;
+}
+
+.seatDesc {
+  font-size: 11px;
+  color: var(--text-small);
+  margin-bottom: 12px;
+}
+
+.seatFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seatPrice {
+  font-size: 14px;
+  font-weight: 700;
+  color: #131111;
+}
+
+.counter {
+  display: flex;
+  background-color: white;
+  border: 1px solid var(--grey-color);
+  border-radius: 24px;
+  padding: 0.2em;
+  align-items: center;
+  gap: 6px;
+}
+
+.counterBtn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #131111;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s, transform 0.12s;
+}
+
+.counterBtn:not(:disabled):hover {
+  background: var(--text);
+}
+
+.counterBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.counterVal {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 14px;
+  text-align: center;
+}
+
+.totalBar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--page-max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-top: 3px solid var(--text);
+  padding: 14px var(--page-padding-x) 20px;
+  z-index: 50;
+}
+
+@media (max-width: 900px) {
+  .totalBar {
+    bottom: 70px;
+    max-width: 100%;
+  }
+}
+
+.totalLabel {
+  font-size: 11px;
+  color: var(--text-small);
+  margin-bottom: 2px;
+}
+
+.totalAmount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #131111;
+}
+
+.checkoutBtn {
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-family: var(--heading);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.checkoutBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.checkoutBtn:not(:disabled):hover {
+  background: #025a96;
+}
+
+/* ── Checkout ─────────────────────────────────────────────────── */
+
+.checkoutHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.checkoutSubheading {
+  font-size: 12px;
+  color: var(--text-small);
+  margin-bottom: 16px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px dashed #d0d5dd;
+  margin: 12px 0;
+}
+
+.lineItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-small);
+}
+
+.totalRow {
+  font-size: 14px;
+  font-weight: 700;
+  color: #131111;
+  margin-top: 4px;
+}
+
+.payWrapper {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.payBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 39px;
+  font-family: var(--heading);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.payBtn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.payBtn:hover {
+  background: #025a96;
+}
+
+.payNote {
+  font-size: 11px;
+  color: #888;
+  text-align: center;
+}
+
+/* ── Shared back button ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .heading {
+    font-size: clamp(22px, 7vw, 26px);
+  }
+
+  .matchBanner img {
+    width: 100%;
+    height: calc(100% + 27px);
+    margin-top: -30px;
+    transform: scaleX(1.33) scaleY(1.2);
+  }
+
+  .soldOut {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+  }
+
+  .matchInfo {
+    padding: 4px 10px 10px;
+    min-width: 0;
+  }
+
+  .matchInfo strong {
+    overflow-wrap: anywhere;
+  }
+  .seats{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .heading {
+    font-size: clamp(22px, 7vw, 26px);
+  }
+
+  .matchBanner img {
+    width: 100%;
+    height: calc(100% + 27px);
+    margin-top: -30px;
+    transform: scaleX(1.33) scaleY(1.2);
+  }
+
+  .soldOut {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+  }
+
+  .matchInfo {
+    padding: 4px 10px 10px;
+    min-width: 0;
+  }
+
+  .matchInfo strong {
+    overflow-wrap: anywhere;
+  }
+
+  .seats {
+    flex-direction: column;
+  }
+
+  .seats {
+    margin-bottom: 160px;
+  }
+}
